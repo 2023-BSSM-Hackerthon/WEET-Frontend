@@ -1,9 +1,12 @@
+import { useNavigate } from "react-router-dom";
 import Logo from "../../assets/svgs/Logo";
 import Header from "../../components/Header";
 import theme from "../../styles/theme";
 import * as S from "./style";
 
 const Main = () => {
+  const navigate = useNavigate();
+
   return (
     <S.Container>
       <Header />
@@ -14,7 +17,9 @@ const Main = () => {
           <Logo width={100} color={theme.primary} />
           <S.Title>에서 풀어보세요.</S.Title>
         </S.Wraapper>
-        <S.Button>상담 신청하기</S.Button>
+        <S.Button onClick={() => navigate("/application")}>
+          상담 신청하기
+        </S.Button>
       </S.Contents>
     </S.Container>
   );
