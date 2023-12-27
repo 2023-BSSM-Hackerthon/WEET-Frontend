@@ -1,8 +1,16 @@
 import Header from "../../components/Header";
+import RejectModal from "../../components/RejectModal";
+import useModal from "../../hooks/useModal";
 import theme from "../../styles/theme";
 import * as S from "./style";
 
 const AppList = () => {
+  const { openModal, closeModal } = useModal();
+  const openRejectModal = () => {
+    openModal({
+      component: <RejectModal closeModal={closeModal} />,
+    });
+  };
   return (
     <S.Container>
       <Header />
@@ -18,7 +26,12 @@ const AppList = () => {
               <S.Button style={{ background: theme.primary }}>
                 상담 수락
               </S.Button>
-              <S.Button style={{ background: theme.grey[500] }}>거절</S.Button>
+              <S.Button
+                onClick={openRejectModal}
+                style={{ background: theme.grey[500] }}
+              >
+                거절
+              </S.Button>
             </div>
           </S.AppContainer>
         </S.Wrapper>
