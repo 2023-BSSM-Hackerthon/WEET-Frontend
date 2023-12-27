@@ -2,6 +2,10 @@ import styled from "styled-components";
 import { font } from "../../styles/font";
 import theme from "../../styles/theme";
 
+interface TagProps {
+  selected?: boolean;
+}
+
 export const Container = styled.div`
   width: 100vw;
   height: 100vh;
@@ -50,12 +54,14 @@ export const Tags = styled.div`
   margin-top: 20px;
 `;
 
-export const Tag = styled.button`
+export const Tag = styled.button<TagProps>`
   width: 90px;
   height: 40px;
   border: none;
   border-radius: 50px;
-  background-color: ${theme.grey[200]};
+  background-color: ${({ selected }) =>
+    selected ? theme.primary : theme.grey[200]};
+  color: ${({ selected }) => (selected ? theme.white : theme.black)};
   ${font.$Body3}
 `;
 
