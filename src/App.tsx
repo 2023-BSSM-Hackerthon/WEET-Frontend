@@ -1,11 +1,14 @@
-import React from "react";
-import { RecoilRoot } from "recoil";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Modal from "./components/Modal";
 
 const App = () => {
   return (
-    <RecoilRoot>
-      <h1>hello</h1>
-    </RecoilRoot>
+    <>
+      <Modal />
+      <BrowserRouter>
+        <Routes></Routes>
+      </BrowserRouter>
+    </>
   );
 };
 
