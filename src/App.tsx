@@ -1,10 +1,11 @@
 import React from "react";
+import { RecoilRoot } from "recoil";
 
 const App = () => {
   return (
-    <div>
+    <RecoilRoot>
       <h1>hello</h1>
-    </div>
+    </RecoilRoot>
   );
 };
 
