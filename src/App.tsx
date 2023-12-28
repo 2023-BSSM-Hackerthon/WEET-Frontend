@@ -5,7 +5,7 @@ import Application from "./pages/Application";
 import AppList from "./pages/AppList";
 import History from "./pages/History";
 import CounselList from "./pages/CounselList";
-import Auth from "./pages/Auth";
+import Auth from "./pages/Auth/Student";
 import AuthWrapper from "./components/AuthWrapper";
 
 const App = () => {

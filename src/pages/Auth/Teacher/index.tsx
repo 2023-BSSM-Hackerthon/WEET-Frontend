@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { instance } from "../../api";
+import { instance } from "../../../api";
 
 const Auth = () => {
   const code = window.location.search.replace("?code=", "");
@@ -10,7 +10,7 @@ const Auth = () => {
     (async () => {
       if (code) {
         try {
-          const { data } = await instance.post("/auth/student", null, {
+          const { data } = await instance.post("/auth/teacher", null, {
             params: { code },
           });
           console.log(data);

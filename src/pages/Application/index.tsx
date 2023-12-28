@@ -18,6 +18,7 @@ interface UserInput {
 const Application = () => {
   const navigate = useNavigate();
   const user = useRecoilValue(userStore);
+  console.log(user);
   const [userInput, setUserInput] = useState<UserInput>({
     title: "",
     theme: "",
@@ -55,7 +56,6 @@ const Application = () => {
       });
       if (data) {
         setUser(data);
-        // console.log(data);
         userInput.author = data.id;
       }
     })();
