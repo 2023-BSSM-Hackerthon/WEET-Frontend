@@ -5,6 +5,7 @@ import Application from "./pages/Application";
 import AppList from "./pages/AppList";
 import History from "./pages/History";
 import CounselList from "./pages/CounselList";
+import Auth from "./pages/Auth";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
           <Route path="/Applist" element={<AppList />} />
           <Route path="/History" element={<History />} />
           <Route path="/CounselList" element={<CounselList />} />
+          <Route path="/auth/bsm" element={<Auth />} />
         </Routes>
       </BrowserRouter>
     </>

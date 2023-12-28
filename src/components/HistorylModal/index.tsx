@@ -23,6 +23,7 @@ const HistoryModal = ({ closeModal }: GenerateModalProps) => {
         아이고안녕하세요카더가든아세요?카더가든아세요?카더가든아세요? 전
         좋아하거든요.전 좋아하거든요.전 좋아하거든요.
       </Content>
+      <Button onClick={closeModal}>나가기</Button>
     </Container>
   );
 };
@@ -46,6 +47,16 @@ export const Title = styled.h1`
 
 export const Content = styled.h1`
   ${font.$Body3};
+`;
+
+export const Button = styled.button`
+  width: 100px;
+  height: 40px;
+  background-color: ${theme.primary};
+  border: none;
+  border-radius: 20px;
+  ${font.$Button2};
+  color: ${theme.white};
 `;
 
 export default HistoryModal;
