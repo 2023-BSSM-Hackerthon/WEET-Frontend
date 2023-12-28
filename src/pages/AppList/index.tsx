@@ -19,9 +19,15 @@ const AppList = () => {
         <S.Wrapper>
           <S.AppContainer>
             <div>
-              <S.AppTitle>너무 잘생겨서 고민이에요.</S.AppTitle>
+              <div
+                style={{ display: "flex", gap: "5px", alignItems: "center" }}
+              >
+                <S.Tag>기타</S.Tag>
+                <S.AppTitle>너무 잘생겨서 고민이에요.</S.AppTitle>
+              </div>
               <S.Name>2215 이희성 / 2023.12.29.14:30</S.Name>
             </div>
+
             <div style={{ display: "flex", gap: "10px" }}>
               <S.Button style={{ background: theme.primary }}>
                 상담 수락

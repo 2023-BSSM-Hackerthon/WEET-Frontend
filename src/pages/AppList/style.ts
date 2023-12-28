@@ -56,3 +56,14 @@ export const Button = styled.button`
   color: ${theme.white};
   cursor: pointer;
 `;
+
+export const Tag = styled.span`
+  width: 80px;
+  height: 30px;
+  background-color: ${theme.primary};
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  ${font.$Button2};
+`;
