@@ -6,6 +6,7 @@ import AppList from "./pages/AppList";
 import History from "./pages/History";
 import CounselList from "./pages/CounselList";
 import Auth from "./pages/Auth";
+import AuthWrapper from "./components/AuthWrapper";
 
 const App = () => {
   return (

@@ -10,7 +10,7 @@ const Auth = () => {
     (async () => {
       if (code) {
         try {
-          const { data } = await instance.post("api/auth/student", null, {
+          const { data } = await instance.post("/auth/student", null, {
             params: { code },
           });
           console.log(data);

@@ -9,9 +9,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <RecoilRoot>
-    <React.StrictMode>
-      <App />
-      <GlobalStyle />
-    </React.StrictMode>
+    <App />
+    <GlobalStyle />
   </RecoilRoot>
 );

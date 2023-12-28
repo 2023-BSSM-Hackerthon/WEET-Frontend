@@ -1,26 +1,38 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import * as S from "./style";
+import { instance } from "../../api";
+import { userStore } from "../../store/user.store";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { useNavigate } from "react-router-dom";
 
 interface UserInput {
   title: string;
-  category: string;
-  time: string;
-  description: string;
+  theme: string;
+  possibleTime: string;
+  content: string;
+  author: number;
+  state: boolean;
 }
 
 const Application = () => {
+  const navigate = useNavigate();
+  const user = useRecoilValue(userStore);
   const [userInput, setUserInput] = useState<UserInput>({
     title: "",
-    category: "",
-    time: "",
-    description: "",
+    theme: "",
+    possibleTime: "",
+    content: "",
+    author: 0,
+    state: false,
   });
 
-  const handleTagClick = (category: string) => {
+  const setUser = useSetRecoilState(userStore);
+
+  const handleTagClick = (theme: string) => {
     setUserInput((prevUserInput) => ({
       ...prevUserInput,
-      category,
+      theme,
     }));
   };
 
@@ -34,15 +46,36 @@ const Application = () => {
     }));
   };
 
-  const handleRequest = () => {
+  useEffect(() => {
+    (async () => {
+      const { data } = await instance.get("/auth", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("accessToken") || ""}`,
+        },
+      });
+      if (data) {
+        setUser(data);
+        // console.log(data);
+        userInput.author = data.id;
+      }
+    })();
+  }, []);
+
+  const handleRequest = async () => {
     if (
       userInput &&
       userInput.title.trim() !== "" &&
-      userInput.time.trim() !== "" &&
-      userInput.category.trim() !== "" &&
-      userInput.description.trim() !== ""
+      userInput.possibleTime.trim() !== "" &&
+      userInput.theme.trim() !== "" &&
+      userInput.content.trim() !== ""
     ) {
-      console.log(userInput);
+      await instance.post("/form", userInput, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("accessToken") || ""}`,
+        },
+      });
+      alert("신청이 완료되었습니다.");
+      navigate("/");
     } else {
       alert("모든 필드를 채워주세요.");
     }
@@ -66,32 +99,32 @@ const Application = () => {
             <S.Title>카테고리</S.Title>
             <S.Tags>
               <S.Tag
-                onClick={() => handleTagClick("학업")}
-                selected={userInput.category === "학업"}
+                onClick={() => handleTagClick("STUDY")}
+                selected={userInput.theme === "STUDY"}
               >
                 학업
               </S.Tag>
               <S.Tag
-                onClick={() => handleTagClick("진로")}
-                selected={userInput.category === "진로"}
+                onClick={() => handleTagClick("DREAM")}
+                selected={userInput.theme === "DREAM"}
               >
                 진로
               </S.Tag>
               <S.Tag
-                onClick={() => handleTagClick("친구")}
-                selected={userInput.category === "친구"}
+                onClick={() => handleTagClick("FRIEND")}
+                selected={userInput.theme === "FRIEND"}
               >
                 친구
               </S.Tag>
               <S.Tag
-                onClick={() => handleTagClick("가족")}
-                selected={userInput.category === "가족"}
+                onClick={() => handleTagClick("FMAILLY")}
+                selected={userInput.theme === "FMAILLY"}
               >
                 가족
               </S.Tag>
               <S.Tag
-                onClick={() => handleTagClick("기타")}
-                selected={userInput.category === "기타"}
+                onClick={() => handleTagClick("ETC")}
+                selected={userInput.theme === "ETC"}
               >
                 기타
               </S.Tag>
@@ -101,8 +134,8 @@ const Application = () => {
             <S.Title>상담 시간</S.Title>
             <S.Input
               type="datetime-local"
-              name="time"
-              value={userInput.time}
+              name="possibleTime"
+              value={userInput.possibleTime}
               onChange={handleInputChange}
             />
           </S.Time>
@@ -110,8 +143,8 @@ const Application = () => {
         <S.Wrapper>
           <S.Title>고민 설명</S.Title>
           <S.TextArea
-            name="description"
-            value={userInput.description}
+            name="content"
+            value={userInput.content}
             onChange={handleInputChange}
           />
         </S.Wrapper>
