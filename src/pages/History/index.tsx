@@ -1,9 +1,19 @@
 import Header from "../../components/Header";
+import HistoryModal from "../../components/HistorylModal";
+import useModal from "../../hooks/useModal";
 import * as S from "./style";
 
 const History = () => {
+  const { openModal, closeModal } = useModal();
+
+  const openHistoryModal = () => {
+    openModal({
+      component: <HistoryModal closeModal={closeModal} />,
+    });
+  };
+
   return (
-    <S.Container>
+    <S.Container onClick={openHistoryModal}>
       <Header />
       <S.Contents>
         <S.Title>나의 상담 기록</S.Title>
