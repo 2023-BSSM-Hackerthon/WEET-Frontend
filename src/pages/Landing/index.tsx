@@ -3,9 +3,21 @@ import Logo from "../../assets/svgs/Logo";
 import Header from "../../components/Header";
 import theme from "../../styles/theme";
 import * as S from "./style";
+import { useRecoilValue } from "recoil";
+import { userStore } from "../../store/user.store";
+import useModal from "../../hooks/useModal";
+import LoginModal from "../../components/LoginModal";
 
 const Main = () => {
   const navigate = useNavigate();
+  const isUser = localStorage.getItem("accessToken");
+  const { openModal, closeModal } = useModal();
+
+  const openLoginModal = () => {
+    openModal({
+      component: <LoginModal closeModal={closeModal} />,
+    });
+  };
 
   return (
     <S.Container>
@@ -17,9 +29,13 @@ const Main = () => {
           <Logo width={100} color={theme.primary} />
           <S.Title>에서 풀어보세요.</S.Title>
         </S.Wraapper>
-        <S.Button onClick={() => navigate("/application")}>
-          상담 신청하기
-        </S.Button>
+        {isUser ? (
+          <S.Button onClick={() => navigate("/application")}>
+            상담 신청하기
+          </S.Button>
+        ) : (
+          <S.Button onClick={openLoginModal}>로그인하기</S.Button>
+        )}
       </S.Contents>
     </S.Container>
   );
