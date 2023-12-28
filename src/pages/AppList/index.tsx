@@ -1,3 +1,4 @@
+import AboutModal from "../../components/AboutModal";
 import Header from "../../components/Header";
 import RejectModal from "../../components/RejectModal";
 import useModal from "../../hooks/useModal";
@@ -6,11 +7,19 @@ import * as S from "./style";
 
 const AppList = () => {
   const { openModal, closeModal } = useModal();
+
   const openRejectModal = () => {
     openModal({
       component: <RejectModal closeModal={closeModal} />,
     });
   };
+
+  const openAboutModal = () => {
+    openModal({
+      component: <AboutModal closeModal={closeModal} />,
+    });
+  };
+
   return (
     <S.Container>
       <Header />
@@ -29,7 +38,10 @@ const AppList = () => {
             </div>
 
             <div style={{ display: "flex", gap: "10px" }}>
-              <S.Button style={{ background: theme.primary }}>
+              <S.Button
+                onClick={openAboutModal}
+                style={{ background: theme.primary }}
+              >
                 상담 수락
               </S.Button>
               <S.Button

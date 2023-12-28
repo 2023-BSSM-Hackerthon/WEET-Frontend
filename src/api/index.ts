@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const API_URL = "localhost:8080";
+const API_URL = "http://10.150.150.179:8080/";
 
 export const instance = axios.create({
-  baseURL: "localhost:8080",
+  baseURL: API_URL,
 });
 
 instance.interceptors.request.use(
