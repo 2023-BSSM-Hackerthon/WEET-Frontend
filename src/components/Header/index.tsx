@@ -4,6 +4,7 @@ import * as S from "./style";
 import useModal from "../../hooks/useModal";
 import LoginModal from "../LoginModal";
 import { useState } from "react";
+import AppointmentModal from "../AppointmentModal";
 
 const Header = () => {
   const { openModal, closeModal } = useModal();
@@ -16,6 +17,12 @@ const Header = () => {
     });
   };
 
+  const openAppointmentModal = () => {
+    openModal({
+      component: <AppointmentModal closeModal={closeModal} />,
+    });
+  };
+
   const handleLogout = () => {
     localStorage.clear();
   };
@@ -25,7 +32,7 @@ const Header = () => {
       <Link to="/">
         <Logo />
       </Link>
-      {isLogin ? (
+      {!isLogin ? (
         <div>
           <S.Sign
             onClick={() => {
@@ -34,6 +41,7 @@ const Header = () => {
           >
             내 정보
           </S.Sign>
+          <button onClick={openAppointmentModal}>신청</button>
           {isOpened && (
             <S.DropdownContainer>
               <S.Options>

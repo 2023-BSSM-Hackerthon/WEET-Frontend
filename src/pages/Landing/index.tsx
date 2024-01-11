@@ -1,10 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import Logo from "../../assets/svgs/Logo";
 import Header from "../../components/Header";
-import theme from "../../styles/theme";
+import theme from "../../styles/theme/theme";
 import * as S from "./style";
-import { useRecoilValue } from "recoil";
-import { userStore } from "../../store/user.store";
 import useModal from "../../hooks/useModal";
 import LoginModal from "../../components/LoginModal";
 

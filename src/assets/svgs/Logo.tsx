@@ -1,6 +1,6 @@
 import React from "react";
 import SVGAttributeProps from "../../types/svg.stype";
-import theme from "../../styles/theme";
+import theme from "../../styles/theme/theme";
 
 const Logo = ({
   width = 60,

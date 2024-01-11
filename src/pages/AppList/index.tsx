@@ -2,7 +2,7 @@ import AboutModal from "../../components/AboutModal";
 import Header from "../../components/Header";
 import RejectModal from "../../components/RejectModal";
 import useModal from "../../hooks/useModal";
-import theme from "../../styles/theme";
+import theme from "../../styles/theme/theme";
 import * as S from "./style";
 
 const AppList = () => {

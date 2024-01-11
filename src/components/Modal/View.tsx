@@ -1,4 +1,3 @@
-import useModal from "../../hooks/useModal";
 import IModalState from "../../types/ImodalState.type";
 import * as S from "./style";
 

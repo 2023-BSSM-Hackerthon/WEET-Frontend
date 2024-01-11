@@ -1,5 +1,5 @@
 import Logo from "../../assets/svgs/Logo";
-import theme from "../../styles/theme";
+import theme from "../../styles/theme/theme";
 import * as S from "./style";
 
 interface GenerateModalProps {
