@@ -34,7 +34,7 @@ export const ModalBackground = styled.div<{ hidden: boolean }>`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(0.2rem);
   z-index: 10;
   ${({ hidden }) =>
