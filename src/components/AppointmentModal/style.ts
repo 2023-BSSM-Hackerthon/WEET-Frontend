@@ -16,4 +16,5 @@ export const Top = styled.div`
   align-items: center;
   justify-content: center;
   gap: 10px;
+  margin-bottom: 18px;
 `;
