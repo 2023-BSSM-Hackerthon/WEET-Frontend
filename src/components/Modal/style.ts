@@ -50,8 +50,8 @@ export const ModalBox = styled.div<{ visible: boolean }>`
   position: fixed;
   width: fit-content;
   height: fit-content;
-  top: 15%;
   z-index: 20;
+  margin-top: 50px;
   transform: translate(-50%, -50%);
   ${({ hidden }) =>
     hidden &&
