@@ -2,8 +2,7 @@ import { css, keyframes, styled } from "styled-components";
 
 export const ModalContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
 `;
 
 const ShowModalAnimation = keyframes`
@@ -43,18 +42,17 @@ export const ModalBackground = styled.div<{ hidden: boolean }>`
       display: none;
     `}
 `;
-
 export const ModalBox = styled.div<{ visible: boolean }>`
   display: flex;
   flex-direction: column;
   position: fixed;
   width: fit-content;
   height: fit-content;
+  margin: 30px;
   z-index: 20;
-  margin-top: 50px;
   transform: translate(-50%, -50%);
-  ${({ hidden }) =>
-    hidden &&
+  ${({ visible }) =>
+    !visible &&
     css`
       display: none;
     `}
