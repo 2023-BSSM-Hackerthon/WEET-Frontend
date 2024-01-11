@@ -1,3 +1,4 @@
+import useModal from "../../hooks/useModal";
 import IModalState from "../../types/ImodalState.type";
 import * as S from "./style";
 
@@ -9,7 +10,7 @@ const ModalView = ({ component, visible, onClose }: ModalViewProps) => {
   return (
     <S.ModalContainer>
       <S.ModalBackground hidden={!visible} onClick={onClose} />
-      <S.ModalBox>{component}</S.ModalBox>
+      <S.ModalBox visible={visible || false}>{component}</S.ModalBox>
     </S.ModalContainer>
   );
 };

@@ -25,7 +25,7 @@ const Auth = () => {
     })();
   }, []);
 
-  return <div></div>;
+  return <></>;
 };
 
 export default Auth;
