@@ -1,7 +1,7 @@
-import useModal from "../../hooks/useModal";
 import { useRecoilState } from "recoil";
-import modalStore from "../../store/modal.store";
+import modalStore from "../../../store/modal.store";
 import ModalView from "./View";
+import useModal from "../../../hooks/useModal";
 
 const Modal = () => {
   const [modal] = useRecoilState(modalStore);

@@ -1,4 +1,4 @@
-import IModalState from "../../types/ImodalState.type";
+import IModalState from "../../../types/ImodalState.type";
 import * as S from "./style";
 
 interface ModalViewProps extends IModalState {

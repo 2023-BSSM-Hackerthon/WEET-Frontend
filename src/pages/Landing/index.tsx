@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Logo from "../../assets/svgs/Logo";
-import Header from "../../components/Header";
+import Header from "../../components/common/Header";
 import theme from "../../styles/theme/theme";
 import * as S from "./style";
 import useModal from "../../hooks/useModal";

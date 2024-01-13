@@ -1,5 +1,5 @@
 import AboutModal from "../../components/AboutModal";
-import Header from "../../components/Header";
+import Header from "../../components/common/Header";
 import RejectModal from "../../components/RejectModal";
 import useModal from "../../hooks/useModal";
 import theme from "../../styles/theme/theme";

@@ -1,5 +1,5 @@
 import CounselContentModal from "../../components/CounselContentModal";
-import Header from "../../components/Header";
+import Header from "../../components/common/Header";
 import useModal from "../../hooks/useModal";
 import theme from "../../styles/theme/theme";
 import * as A from "../AppList/style";

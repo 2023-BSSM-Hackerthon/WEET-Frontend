@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import Logo from "../../assets/svgs/Logo";
 import * as S from "./style";
-import useModal from "../../hooks/useModal";
-import LoginModal from "../LoginModal";
 import { useState } from "react";
-import AppointmentModal from "../AppointmentModal";
+import AppointmentModal from "../../AppointmentModal";
+import LoginModal from "../../LoginModal";
+import useModal from "../../../hooks/useModal";
+import Logo from "../../../assets/svgs/Logo";
 
 const Header = () => {
   const { openModal, closeModal } = useModal();

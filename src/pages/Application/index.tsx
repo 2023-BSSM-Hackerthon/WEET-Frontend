@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Header from "../../components/Header";
+import Header from "../../components/common/Header";
 import * as S from "./style";
 import { instance } from "../../api";
 import { userStore } from "../../store/user.store";

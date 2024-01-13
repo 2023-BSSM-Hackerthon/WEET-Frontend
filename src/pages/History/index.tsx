@@ -1,4 +1,4 @@
-import Header from "../../components/Header";
+import Header from "../../components/common/Header";
 import HistoryModal from "../../components/HistorylModal";
 import useModal from "../../hooks/useModal";
 import * as S from "./style";
